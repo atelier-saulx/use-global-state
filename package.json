@@ -2,6 +2,7 @@
   "name": "@based/use-global-state",
   "main": "./index.js",
   "version": "0.0.1",
+  "repository": "https://github.com/atelier-saulx/based-useGlobalState",
   "description": "A react hook to use make the useState hook global, allowing you ot use it anywhere in your project",
   "dependencies": {
     "react": "^17.0.2"
