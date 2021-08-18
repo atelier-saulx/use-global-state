@@ -1,0 +1,22 @@
+{
+  "name": "@based/useglobalstate",
+  "main": "./index.js",
+  "version": "1.0.0",
+  "description": "A react hook to use make the useState hook global, allowing you ot use it anywhere in your project",
+  "dependencies": {
+    "react": "^17.0.2"
+  },
+  "keywords": [
+    "useState",
+    "global",
+    "router",
+    "react",
+    "hook"
+  ],
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "saulx",
+  "license": "ISC"
+}
