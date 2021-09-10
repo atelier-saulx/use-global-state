@@ -35,10 +35,10 @@ const useGlobalState = (key) => {
     };
   }, [key]);
 
-  const [state, setState] = useState(store[key].state);
+  const [, setState] = useState(store[key].state);
   store[key].listeners.add(setState);
 
-  return [state, store[key].setState];
+  return [store[key].state, store[key].setState];
 };
 
 export default useGlobalState;
