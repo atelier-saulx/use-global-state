@@ -12,9 +12,11 @@ const addGlobalStateEntry = (key, defaultValue) => {
 
 export const setGlobalState = (key, val, dontEmit = false) => {
   if (key in store) {
-    store[key].state = val;
-    if (!dontEmit) {
-      store[key].listeners.forEach((fn) => fn(val));
+    if (store[key].state !== val) {
+      store[key].state = val;
+      if (!dontEmit) {
+        store[key].listeners.forEach((fn) => fn(val));
+      }
     }
   } else {
     addGlobalStateEntry(key);
