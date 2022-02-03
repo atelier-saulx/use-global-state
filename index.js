@@ -6,7 +6,7 @@ const addGlobalStateEntry = (key, defaultValue) => {
   store[key] = {
     setState: (val) => setGlobalState(key, val),
     listeners: new Set(),
-    state: defaultValue,
+    state: typeof defaultValue === "function" ? defaultValue() : defaultValue,
   };
 };
 
