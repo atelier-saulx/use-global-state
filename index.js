@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 
 const store = {};
 
-const addGlobalStateEntry = (key) => {
+const addGlobalStateEntry = (key, defaultValue) => {
   store[key] = {
     setState: (val) => setGlobalState(key, val),
     listeners: new Set(),
+    state: defaultValue,
   };
 };
 
@@ -24,9 +25,9 @@ export const getGlobalState = (key) => {
   return (key in store && store[key].state) || undefined;
 };
 
-const useGlobalState = (key) => {
+const useGlobalState = (key, defaultValue) => {
   if (!(key in store)) {
-    addGlobalStateEntry(key);
+    addGlobalStateEntry(key, defaultValue);
   }
 
   useEffect(() => {
