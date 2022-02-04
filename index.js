@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 const store = {};
+let cnt = 0;
 
 const addGlobalStateEntry = (key, defaultValue) => {
   store[key] = {
@@ -15,7 +16,8 @@ export const setGlobalState = (key, val, dontEmit = false) => {
     if (store[key].state !== val) {
       store[key].state = val;
       if (!dontEmit) {
-        store[key].listeners.forEach((fn) => fn(val));
+        cnt++;
+        store[key].listeners.forEach((fn) => fn(cnt));
       }
     }
   } else {
@@ -38,7 +40,7 @@ const useGlobalState = (key, defaultValue) => {
     };
   }, [key]);
 
-  const [, setState] = useState(store[key].state);
+  const [, setState] = useState(cnt);
   store[key].listeners.add(setState);
 
   return [store[key].state, store[key].setState];
