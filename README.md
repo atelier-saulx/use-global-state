@@ -9,6 +9,5 @@ const MyComp = () => {
   const [count, setCount] = useGlobalState('counter')
   
   return <div onClick={()=>setCount(Math.random())}> Hello {count}</div
-
 }
 ```
