@@ -21,7 +21,7 @@ export const setGlobalState = (key, val, dontEmit = false) => {
       }
     }
   } else {
-    addGlobalStateEntry(key);
+    addGlobalStateEntry(key, val);
   }
 };
 
