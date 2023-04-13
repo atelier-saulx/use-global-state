@@ -4,10 +4,13 @@ const store = {};
 let cnt = 0;
 
 const addGlobalStateEntry = (key, defaultValue) => {
+  while (typeof defaultValue === "function") {
+    defaultValue = defaultValue();
+  }
   store[key] = {
     setState: (val) => setGlobalState(key, val),
     listeners: new Set(),
-    state: typeof defaultValue === "function" ? defaultValue() : defaultValue,
+    state: defaultValue,
   };
 };
 
