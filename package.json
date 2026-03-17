@@ -5,7 +5,7 @@
   "repository": "https://github.com/atelier-saulx/use-global-state",
   "description": "A react hook to make the useState hook global, allowing you to use the same variable anywhere in your project",
   "peerDependencies": {
-    "react": "16||17||18"
+    "react": "*"
   },
   "keywords": [
     "useState",
